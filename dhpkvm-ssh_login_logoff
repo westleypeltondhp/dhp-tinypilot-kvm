@@ -1,13 +1,15 @@
 #!/bin/bash
-
+echo "Adding NGINX to BASHRC"
 sudo cat >> ~/.bashrc <<EOL 
 if [[ -n \$SSH_CONNECTION ]] ; then 
     sudo systemctl start nginx 
     echo "Starting NGINX server for TINYPILOT KVM" 
 fi
 EOL
-
+echo "NGINX Halt at ssh session termination"
 sudo /bin/sh -c 'echo "session     optional    pam_exec.so quiet /etc/pam_session.sh" >> /etc/pam.d/sshd'
-
-sudo wget -P /etc/ https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm-pub/main/pam_session.sh
+echo "Download pam_session.sh"
+sudo wget -P /etc/ https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/pam_session.sh
+echo "CHMOD it"
 sudo chmod a+x /etc/pam_session.sh
+echo "DONE"
