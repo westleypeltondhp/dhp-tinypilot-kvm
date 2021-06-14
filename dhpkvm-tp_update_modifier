@@ -1,4 +1,4 @@
 sudo cat >> /opt/tinypilot-privileged/update <<EOL 
-https://raw.githubusercontent.com/tiny-pilot/tinypilot/master/quick-install | \
+https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-tp_update_modifier | \
     bash -
 EOL
