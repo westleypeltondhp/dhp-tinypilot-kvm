@@ -7,21 +7,18 @@ NC='\033[0m' # No Color
 
 echo -e "${YELLOW}What is your Duo Integration Key?${NC} \n"
 read ikey1
+sudo sed -i '/ikey =/ s/$/ $ikey1/' ~/login_duo.conf
+echo -e "${YELLOW}Added ikey...${NC} \n"
+sleep .5
 
 echo -e "${YELLOW}What is your Duo Secret Key?${NC} \n"
 read skey1
+sudo sed -i '/skey =/ s/$/ $skey1/' ~/login_duo.conf
+echo -e "${YELLOW}Added skey...${NC} \n"
+sleep .5
 
 echo -e "${YELLOW}What is your Duo API host?${NC} \n"
 read host1
-
-echo -e "${YELLOW}Added ikey...${NC} \n"
-sudo sed '/ikey =/ s/$/ $ikey1/' ~/login_duo.conf
-sleep .5
-
-echo -e "${YELLOW}Added skey...${NC} \n"
-sudo sed '/skey =/ s/$/ $skey1/' ~/login_duo.conf
-sleep .5
-
+sudo sed -i '/host =/ s/$/ $host1/' ~/login_duo.conf
 echo -e "${YELLOW}Added host...${NC} \n"
-sudo sed '/host =/ s/$/ $host1/' ~/login_duo.conf
 sleep .5
