@@ -9,6 +9,7 @@ echo -e "${YELLOW}Test${NC} \n"
 sleep .5
 
 sudo nano ~/test.txt
+wait
 sleep 1
 
 echo -e "${YELLOW}Test after nano${NC} \n"
