@@ -5,15 +5,10 @@ NC='\033[0m' # No Color
 
 #BREAK!
 
-echo -e "${YELLOW}Test${NC} \n"
-sleep .5
+echo -e "${YELLOW}What is your name?${NC} \n"
+read name
 
-sudo nano ~/test.txt
-wait
-sleep 1
+echo -e "${YELLOW}How do you do, $name?${NC} \n"
+read remark
 
-echo -e "${YELLOW}Test after nano${NC} \n"
-sleep .5
-
-echo -e "${YELLOW}Test after nano 2${NC} \n"
-sleep .5
+echo -e "${YELLOW}I am $remark too!${NC} \n"
