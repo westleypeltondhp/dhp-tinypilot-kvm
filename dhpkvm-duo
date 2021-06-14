@@ -1,1 +1,26 @@
+#!/bin/bash
 
+# Download Duo Latest
+wget https://dl.duosecurity.com/duo_unix-latest.tar.gz
+
+# Install Fips
+sudo apt-get install libssl-dev
+
+#Start Install of Duo
+tar zxf duo_unix-latest.tar.gz
+cd duo_unix-1.11.4
+./configure --prefix=/usr && make && sudo make install
+
+# Test
+/usr/sbin/login_duo
+
+# Enrollment
+/usr/local/sbin/login_duo
+
+# Test 2
+/usr/sbin/login_duo echo 'YOU ROCK!'
+
+# Add Lines to config
+sudo /bin/sh -c 'echo "ForceCommand /usr/sbin/login_duo" >> /etc/ssh/sshd_config'
+sudo /bin/sh -c 'echo "PermitTunnel no" >> /etc/ssh/sshd_config'
+sudo /bin/sh -c 'echo "AllowTcpForwarding no" >> /etc/ssh/sshd_config'
