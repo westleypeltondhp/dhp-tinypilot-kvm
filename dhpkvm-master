@@ -1,5 +1,17 @@
 #!/bin/bash
 
-curl --show-error https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-duo | bash -
-curl --silent --show-error https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-ssh_login_logoff | bash -
-curl --silent --show-error https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-tp_update_modifier | bash -
+
+
+wget https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-duo
+wget https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-ssh_login_logoff
+wget https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-tp_update_modifier
+chmod a+x dhpkvm-duo
+chmod a+x dhpkvm-ssh_login_logoff
+chmod a+x dhpkvm-tp_update_modifier
+read -p "Start Duo Install?"
+./dhpkvm-duo
+read -p "Start NGINX SSH Login / Log-Off Script?"
+./dhpkvm-ssh_login_logoff
+read -p "Start Tiny Pilot Updater Modifier?"
+./dhpkvm-tp_update_modifier
+echo "Complete... \n"
