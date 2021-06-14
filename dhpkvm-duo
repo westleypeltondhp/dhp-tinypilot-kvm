@@ -11,6 +11,8 @@ tar zxf duo_unix-latest.tar.gz
 cd duo_unix-1.11.4
 ./configure --prefix=/usr && make && sudo make install
 
+sudo nano /etc/duo/login_duo.conf
+
 # Test
 /usr/sbin/login_duo
 
