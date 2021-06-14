@@ -1,0 +1,4 @@
+sudo cat >> /opt/tinypilot-privileged/update <<EOL 
+https://raw.githubusercontent.com/tiny-pilot/tinypilot/master/quick-install | \
+    bash -
+EOL
