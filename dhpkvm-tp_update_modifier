@@ -17,7 +17,7 @@ curl \
   --silent \
   --show-error \
 https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-tp_update_modifier | \
-    bash -
+    bash - && \
 sudo systemctl disable nginx
 EOL
 sleep .5
