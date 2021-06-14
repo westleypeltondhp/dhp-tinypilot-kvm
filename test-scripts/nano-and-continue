@@ -6,9 +6,11 @@ NC='\033[0m' # No Color
 #BREAK!
 
 echo -e "${YELLOW}What is your name?${NC} \n"
+wait
 read name
 
 echo -e "${YELLOW}How do you do, $name?${NC} \n"
+wait
 read remark
 
 echo -e "${YELLOW}I am $remark too!${NC} \n"
