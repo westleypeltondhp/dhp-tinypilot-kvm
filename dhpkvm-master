@@ -1,6 +1,7 @@
 #!/bin/bash
 
-
+RED='\033[0;31m'
+NC='\033[0m' # No Color
 
 # wget https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-duo
 wget https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-ssh_login_logoff
@@ -14,4 +15,4 @@ read -p "Start NGINX SSH Login / Log-Off Script?"
 ./dhpkvm-ssh_login_logoff
 read -p "Start Tiny Pilot Updater Modifier?"
 ./dhpkvm-tp_update_modifier
-echo "Complete..."
+echo "${RED}Complete...${NC}"
