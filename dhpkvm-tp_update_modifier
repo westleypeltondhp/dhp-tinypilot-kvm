@@ -11,7 +11,7 @@ sleep .5
 
 #BREAK!
 
-echo -e "${YELLOW}Adding DHP TP Script -> /opt/tinypilot-privileged/update${NC} \n"
+echo -e "${YELLOW}RE-Adding DHP TP Script -> /opt/tinypilot-privileged/update${NC} \n"
 sudo cat >> /opt/tinypilot-privileged/update <<EOL
 curl \
   --silent \
