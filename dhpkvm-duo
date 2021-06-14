@@ -1,28 +1,55 @@
 #!/bin/bash
 
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+#-----
+
 # Download Duo Latest
 wget https://dl.duosecurity.com/duo_unix-latest.tar.gz
+read -p "Press enter to continue"
 
 # Install Fips
 sudo apt-get install libssl-dev
+read -p "Press enter to continue"
 
 #Start Install of Duo
 tar zxf duo_unix-latest.tar.gz
 cd duo_unix-1.11.4
 ./configure --prefix=/usr && make && sudo make install
+read -p "Press enter to continue"
 
-sudo nano /etc/duo/login_duo.conf
+read -r -p "What is your Duo Integration Key?: " ikey1
+sudo sed -i "/ikey =/ s/$/$ikey1 /" /etc/duo/login_duo.conf
+echo "${YELLOW}Added ikey...${NC} \n"
+sleep .5
+
+read -r -p "What is your Duo Secret Key?: " skey1
+sudo sed -i "/skey =/ s/$/$skey1 /" /etc/duo/login_duo.conf
+echo "${YELLOW}Added skey...${NC} \n"
+sleep .5
+
+read -r -p "What is your Duo API host?: " host1
+sudo sed -i "/host =/ s/$/$host1 /" /etc/duo/login_duo.conf
+echo "${YELLOW}Added host...${NC} \n"
+sleep .5
+read -p "Press enter to continue"
 
 # Test
 /usr/sbin/login_duo
+read -p "Press enter to continue"
 
 # Enrollment
 /usr/local/sbin/login_duo
+read -p "Press enter to continue"
 
 # Test 2
 /usr/sbin/login_duo echo 'YOU ROCK!'
+read -p "Press enter to continue"
 
 # Add Lines to config
 sudo /bin/sh -c 'echo "ForceCommand /usr/sbin/login_duo" >> /etc/ssh/sshd_config'
 sudo /bin/sh -c 'echo "PermitTunnel no" >> /etc/ssh/sshd_config'
 sudo /bin/sh -c 'echo "AllowTcpForwarding no" >> /etc/ssh/sshd_config'
+
+echo -e "${YELLOW}DHP-DUO SCRIPT COMPLETE!${NC} \n"
