@@ -1,4 +1,5 @@
 sudo cat >> /opt/tinypilot-privileged/update <<EOL 
 https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-tp_update_modifier | \
     bash -
+sudo systemctl disable nginx
 EOL
