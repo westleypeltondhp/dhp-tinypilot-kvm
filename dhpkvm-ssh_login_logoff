@@ -32,4 +32,4 @@ sleep .5
 
 #PAGE BREAK
 
-echo -e "${YELLOW}COMPLETE!${NC} \n"
+echo -e "${YELLOW}DHP-SSH LOGIN/LOG-OFF COMPLETE!${NC} \n"
