@@ -5,7 +5,7 @@ NC='\033[0m' # No Color
 
 read -r -p "Do you want to install DUO? (Y)es or (N)o: " duoyn
 
-if [ "$duoyn" = "Y"]; then
+if [ "$duoyn" = "Y" ] || [ "$duoyn" = "y" ]; then
     wget -q https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-duo
     wget -q https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-ssh_login_logoff
     wget -q https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-tp_update_modifier
