@@ -5,12 +5,23 @@ NC='\033[0m' # No Color
 
 #BREAK!
 
-echo -e "${YELLOW}What is your name?${NC} \n"
-pause
-read name
+echo -e "${YELLOW}What is your Duo Integration Key?${NC} \n"
+read ikey1
 
-echo -e "${YELLOW}How do you do, $name?${NC} \n"
-pause
-read remark
+echo -e "${YELLOW}What is your Duo Secret Key?${NC} \n"
+read skey1
 
-echo -e "${YELLOW}I am $remark too!${NC} \n"
+echo -e "${YELLOW}What is your Duo API host?${NC} \n"
+read host1
+
+echo -e "${YELLOW}Added ikey...${NC} \n"
+sudo sed '/ikey =/ s/$/ $ikey1/' ~/login_duo.conf
+sleep .5
+
+echo -e "${YELLOW}Added skey...${NC} \n"
+sudo sed '/skey =/ s/$/ $skey1/' ~/login_duo.conf
+sleep .5
+
+echo -e "${YELLOW}Added host...${NC} \n"
+sudo sed '/host =/ s/$/ $host1/' ~/login_duo.conf
+sleep .5
