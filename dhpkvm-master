@@ -3,16 +3,31 @@
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-# wget https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-duo
-wget https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-ssh_login_logoff
-wget https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-tp_update_modifier
-# chmod a+x dhpkvm-duo
-chmod a+x dhpkvm-ssh_login_logoff
-chmod a+x dhpkvm-tp_update_modifier
-# read -p "Start Duo Install?"
-# ./dhpkvm-duo
-read -p "Start NGINX SSH Login / Log-Off Script?"
-./dhpkvm-ssh_login_logoff
-read -p "Start Tiny Pilot Updater Modifier?"
-./dhpkvm-tp_update_modifier
-echo -e "${RED}Complete...${NC}"
+read -r -p "Do you want to install DUO? (Y)es or (N)o: " duoyn
+
+if [ "$duoyn" = "Y"] || [ "$duoyn" = "y"]; then
+    wget -q https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-duo
+    wget -q https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-ssh_login_logoff
+    wget -q https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-tp_update_modifier
+    chmod a+x dhpkvm-duo
+    chmod a+x dhpkvm-ssh_login_logoff
+    chmod a+x dhpkvm-tp_update_modifier
+    read -p "Start Duo Install?"
+    ./dhpkvm-duo
+    read -p "Start NGINX SSH Login / Log-Off Script?"
+    ./dhpkvm-ssh_login_logoff
+    read -p "Start Tiny Pilot Updater Modifier?"
+    ./dhpkvm-tp_update_modifier
+    echo -e "${RED}Complete...${NC}" 
+else
+    wget -q https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-ssh_login_logoff
+    wget -q https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-tp_update_modifier
+    chmod a+x dhpkvm-ssh_login_logoff
+    chmod a+x dhpkvm-tp_update_modifier
+    read -p "Start NGINX SSH Login / Log-Off Script?"
+    ./dhpkvm-ssh_login_logoff
+    read -p "Start Tiny Pilot Updater Modifier?"
+    ./dhpkvm-tp_update_modifier
+    echo -e "${RED}Complete...${NC}"
+fi
+
