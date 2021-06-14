@@ -1,1 +1,5 @@
+#!/bin/bash
 
+curl --show-error https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-duo | bash -
+curl --silent --show-error https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-ssh_login_logoff | bash -
+curl --silent --show-error https://raw.githubusercontent.com/westleypeltondhp/dhp-tinypilot-kvm/main/dhpkvm-tp_update_modifier | bash -
