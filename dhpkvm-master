@@ -15,4 +15,4 @@ read -p "Start NGINX SSH Login / Log-Off Script?"
 ./dhpkvm-ssh_login_logoff
 read -p "Start Tiny Pilot Updater Modifier?"
 ./dhpkvm-tp_update_modifier
-echo "${RED}Complete...${NC}"
+echo -e "${RED}Complete...${NC}"
